@@ -9,7 +9,7 @@
       从创建一个用户开始...
     </p>
     <p>
-      <a class="btn btn-lg btn-success" href="#" role="button">创建</a>
+      <a class="btn btn-lg btn-success" href="{{ route('signup') }}" role="button">创建</a>
     </p>
   </div>
 @stop
