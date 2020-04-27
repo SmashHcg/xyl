@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('account')->unique();
             $table->string('password');
-            $table->string('avatar')->default('/storage/images/default.jpg');
+            $table->string('avatar')->default('https://cdn.learnku.com/uploads/images/201710/30/1/TrJS40Ey5k.png');
             $table->rememberToken();
             $table->timestamps();
         });
