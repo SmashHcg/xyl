@@ -17,4 +17,13 @@ class UsersController extends Controller
     {
         return view('users.show', compact('user'));
     }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'account' => 'required|unique:users|min:9|max:15',
+            'password' => 'required|confirmed|min:6'
+        ]);
+        return;
+    }
 }
