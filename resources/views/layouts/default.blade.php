@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>@yield('title', '福大校友录') - 毕业设计</title>
-    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
   </head>
   <body>
 
