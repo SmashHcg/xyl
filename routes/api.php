@@ -16,3 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/users/{id}', 'UserController@show');
+//登录用户接口认证
+Route::post('/login', 'LoginController@authenticate');
