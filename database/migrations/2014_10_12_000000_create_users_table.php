@@ -18,6 +18,17 @@ class CreateUsersTable extends Migration
             $table->string('account')->unique();
             $table->string('password');
             $table->string('avatar')->default('https://cdn.learnku.com/uploads/images/201710/30/1/TrJS40Ey5k.png');
+            $table->string('name')->nullable();
+            $table->string('college')->nullable();
+            $table->string('class')->nullable();
+            $table->string('gra_year')->nullable();
+            $table->string('ero_year')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
+            $table->bigInteger('age')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('city')->nullable();
+            $table->string('profession')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
