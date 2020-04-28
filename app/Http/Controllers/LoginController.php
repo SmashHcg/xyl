@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -16,26 +17,27 @@ class LoginController extends Controller
     public function authenticate(Request $request)
     {
         $account = $request->input('account');
-
         $password = $request->input('password');
+        $user = DB::table('users')->where('account', $account)->first();
 
         if (Auth::attempt(['account' => $account, 'password' => $password])) {
             // 认证通过...
             return response()->json([
                 'msg' => 'success',
-                'account' => $account,
-                'avatar' => $avatar,
-                'name' => $name,
-                'college' => $college,
-                'class' => $class,
-                'gra_year' => $gra_year,
-                'ero_year' => $ero_year,
-                'phone' => $phone,
-                'email' => $email,
-                'age' => $age,
-                'gender' => $gender,
-                'city' => $city,
-                'profession' => $profession,
+                'id' => $user->id,
+                'account' => $user->account,
+                'avatar' => $user->avatar,
+                'name' => $user->name,
+                'college' => $user->college,
+                'class' => $user->class,
+                'gra_year' => $user->gra_year,
+                'ero_year' => $user->ero_year,
+                'phone' => $user->phone,
+                'email' => $user->email,
+                'age' => $user->age,
+                'gender' => $user->gender,
+                'city' => $user->city,
+                'profession' => $user->profession,
             ]);
         }
         else{
