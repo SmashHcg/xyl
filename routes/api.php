@@ -20,3 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/users/{id}', 'UserController@show');
 //登录用户接口认证
 Route::post('/login', 'LoginController@authenticate');
+//用户头像更新
+Route::post('/update/avatar', 'UserController@updateAvatar');
+Route::post('/update/info', 'UserController@updateInfo');
