@@ -23,3 +23,5 @@ Route::post('/login', 'LoginController@authenticate');
 //用户头像更新
 Route::post('/update/avatar', 'UserController@updateAvatar');
 Route::post('/update/info', 'UserController@updateInfo');
+//用户查找功能
+Route::get('/users/{id}', 'UserController@show');
