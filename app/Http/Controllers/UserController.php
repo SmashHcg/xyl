@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Resources\User as UserResource;
 use Illuminate\Support\Facades\DB;
+use App\Http\Resources\UserCollection;
 
 class UserController extends Controller
 {
@@ -52,5 +53,15 @@ class UserController extends Controller
                 'profession' => $profession,
                 'gender' => $gender,
             ]);
+    }
+    //用户查找(根据name字段)
+    public function search(Request $request)
+    {
+        $name = $request->input('name');
+        return new UserCollection(
+            User::where('name', $name)
+                    ->orderBy('id')
+                    ->get()
+                );
     }
 }
