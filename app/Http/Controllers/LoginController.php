@@ -29,7 +29,7 @@ class LoginController extends Controller
                 'avatar' => $user->avatar,
                 'name' => $user->name,
                 'college' => $user->college,
-                'class' => $user->class,
+                'className' => $user->class,
                 'gra_year' => $user->gra_year,
                 'ero_year' => $user->ero_year,
                 'phone' => $user->phone,
