@@ -27,12 +27,12 @@ class UserController extends Controller
     public function updateInfo(Request $request)
     {
         $user_id = $request->input('user_id');
-        $name = $request->input('name');
-        $age = $request->input('age');
+        /*$name = $request->input('name');
         $gra_year = $request->input('gra_year');
         $ero_year = $request->input('ero_year');
         $college = $request->input('college');
-        $className = $request->input('className');
+        $className = $request->input('className');*/
+        $age = $request->input('age');
         $phone = $request->input('phone');
         $email = $request->input('email');
         $city = $request->input('city');
@@ -41,12 +41,7 @@ class UserController extends Controller
         DB::table('users')
             ->where('id', $user_id)
             ->update([
-                'name' => $name,
                 'age' => $age,
-                'gra_year' => $gra_year,
-                'ero_year' => $ero_year,
-                'college' => $college,
-                'class' => $className,
                 'phone' => $phone,
                 'email' => $email,
                 'city' => $city,
