@@ -12,15 +12,23 @@
         @include('shared._errors')
 
         <div class="gravatar_edit">
-          <a href="http://www.baidu.com" target="_blank">
+          <a href="https://www.duitang.com" target="_blank">
             <img src="{{ $user->avatar }}" alt="{{ $user->account }}" class="gravatar"/>
           </a>
         </div>
 
-        <form method="POST" action="{{ route('users.update', $user->id )}}">
+        <form method="POST" action="{{ route('users.update', $user->id )}}" enctype="multipart/form-data">
             {{ method_field('PATCH') }}
             {{ csrf_field() }}
+            <div class="form-group mb-4">
+              <label for="" class="avatar-label">用户头像</label>
+              <input type="file" name="avatar" class="form-control-file">
 
+              @if($user->avatar)
+              <br>
+              <img class="thumbnail img-responsive" src="{{ $user->avatar }}" width="200" />
+            @endif
+            </div>
             <div class="form-group">
               <label for="account">账号/学号：</label>
               <input type="text" name="account" class="form-control" value="{{ $user->account }}" disabled>
