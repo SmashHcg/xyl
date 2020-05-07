@@ -18,8 +18,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 //登录用户接口认证
 Route::post('/login', 'LoginController@authenticate');
+//用户图片上传
+Route::post('/images', 'ImagesController@store');
 //用户头像更新
 Route::post('/update/avatar', 'UserController@updateAvatar');
+//用户信息更新
 Route::post('/update/info', 'UserController@updateInfo');
 //用户查找功能
 Route::post('/search', 'UserController@search');

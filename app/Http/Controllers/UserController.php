@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Http\Resources\User as UserResource;
 use Illuminate\Support\Facades\DB;
 use App\Http\Resources\UserCollection;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -17,21 +18,15 @@ class UserController extends Controller
     //用户更新头像
     public function updateAvatar(Request $request)
     {
-        $user_id = $request->input('user_id');
-        $avatar = $request->input('avatar');
-        DB::table('users')
-            ->where('id', $user_id)
-            ->update(['avatar' => $avatar]);
+        dd($request->avatar);
+        $path = $request->file('avatar')->store('avatars');
+
+        return $path;
     }
     //用户更新资料
     public function updateInfo(Request $request)
     {
         $user_id = $request->input('user_id');
-        /*$name = $request->input('name');
-        $gra_year = $request->input('gra_year');
-        $ero_year = $request->input('ero_year');
-        $college = $request->input('college');
-        $className = $request->input('className');*/
         $age = $request->input('age');
         $phone = $request->input('phone');
         $email = $request->input('email');
