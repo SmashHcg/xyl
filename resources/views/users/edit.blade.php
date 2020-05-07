@@ -17,7 +17,7 @@
           </a>
         </div>
 
-        <form method="POST" action="{{ route('users.update', $user->id )}}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('users.update', $user->id )}}" enctype="multipart/form-data" accept-charset="UTF-8">
             {{ method_field('PATCH') }}
             {{ csrf_field() }}
             <div class="form-group mb-4">
