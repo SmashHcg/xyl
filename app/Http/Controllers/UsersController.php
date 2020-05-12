@@ -25,6 +25,22 @@ class UsersController extends Controller
         return view('users.index', compact('users'));
     }
 
+    //搜索用户
+    public function search(Request $request)
+    {
+        $users = User::where('name', $request->name)
+                    ->orderBy('id', 'asc')
+                    ->paginate(10);
+        if ($users->first()){
+            $title ='"' . $users->first()->name . '"' . '搜索结果';
+            return view('users.search', compact('users', 'title'));
+        }
+        else{
+            session()->flash('success', '未搜索到姓名为'. $request->name . '的用户!');
+            return back();
+        }
+    }
+
     //创建用户方法返回create页面
     public function create()
     {
