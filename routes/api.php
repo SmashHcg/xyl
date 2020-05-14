@@ -26,3 +26,5 @@ Route::post('/update/avatar', 'UserController@updateAvatar');
 Route::post('/update/info', 'UserController@updateInfo');
 //用户查找功能
 Route::post('/search', 'UserController@search');
+//动态发布和删除
+Route::post('/status/fabu', 'StatusApiController@store');
