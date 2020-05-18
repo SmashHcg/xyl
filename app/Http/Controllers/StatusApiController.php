@@ -27,4 +27,13 @@ class StatusApiController extends Controller
 
         return response()->json(['msg' => 'success']);
     }
+
+    //动态展示
+    public function show(Request $request)
+    {
+        $user_id = $request->input('user_id');
+        $feed_items = [];
+        $feed_items = User::where('id', $user_id)->first()->feed()->get();
+        return response()->json($feed_items);
+    }
 }

@@ -28,3 +28,5 @@ Route::post('/update/info', 'UserController@updateInfo');
 Route::post('/search', 'UserController@search');
 //动态发布和删除
 Route::post('/status/fabu', 'StatusApiController@store');
+//动态展示
+Route::post('/status/show', 'StatusApiController@show');
